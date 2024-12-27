@@ -2411,3 +2411,60 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.floating-icons {
+  position: fixed;
+  left: 15px;
+  bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.floating-icons a {
+  background-color: #25d366; /* WhatsApp green */
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  width: 60px; /* Slightly larger for visibility */
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.5); /* Green glow shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  text-decoration: none;
+}
+
+.floating-icons a:hover {
+  background-color: #ff7700; /* Highlight color */
+  transform: scale(1.2); /* Slightly larger on hover */
+  box-shadow: 0 8px 15px rgba(255, 119, 0, 0.6); /* Orange glow on hover */
+}
+
+.floating-icons .call-icon {
+  background-color: #0d83fd; /* Custom blue for call icon */
+  box-shadow: 0 4px 10px rgba(13, 131, 253, 0.5); /* Blue glow shadow */
+}
+
+.floating-icons .call-icon:hover {
+  background-color: #0056b3; /* Darker blue */
+  box-shadow: 0 8px 15px rgba(0, 86, 179, 0.6); /* Blue glow on hover */
+}
+
+.floating-icons i {
+  font-size: 26px; /* Slightly larger icon size */
+  animation: pulse 1.5s infinite; /* Pulsating effect */
+}
+
+/* Pulsating Effect */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
