@@ -2482,12 +2482,12 @@ section,
 
 .footitem:hover {
   color: var(--accent-color);
-  transform: scaleX(1.2); /* Zoom horizontally to 120% width */
+  transform: scaleX(1.09); /* Zoom horizontally to 120% width */
 }
 
 .footitem a:hover {
   color: var(--accent-color);
-  transform: scaleX(1.2); /* Zoom horizontally to 120% width */
+  transform: scaleX(1.09); /* Zoom horizontally to 120% width */
 }
 
 
