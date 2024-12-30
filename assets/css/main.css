@@ -963,7 +963,7 @@ section,
 .about .about-meta {
   color: var(--accent-color);
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
   display: inline-block;
 }
 
