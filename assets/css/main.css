@@ -2438,7 +2438,7 @@ section,
 .floating-icons {
   position: fixed;
   left: 15px;
-  bottom: 20px;
+  bottom: 40px;
   display: flex;
   flex-direction: column;
   gap: 15px;
