@@ -1218,14 +1218,14 @@ section,
 
 @media (max-width: 768px) {
   .number-square {
-    display: flex;
+    margin-left: 13px;
   }
   
 }
 
 @media (max-width: 480px) {
   .number-square {
-    
+    margin-left: 13px;
   }
 }
 
