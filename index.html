@@ -121,7 +121,7 @@
                 </p>
 
                 <div class="hero-buttons">
-                  <a href="#about" class="btn btn-primary me-0 me-sm-2 mx-1"
+                  <a href="#about" onclick="smoothScroll(event, '#about')" class="btn btn-primary me-0 me-sm-2 mx-1"
                     >Learn More</a
                   >
                 </div>
@@ -924,15 +924,23 @@
                 <div class="col-lg-3 col-md-3 footer-links text-start">
                   <h4>Info</h4>
                   <div class="footer-contact text-start">
-                    <p>ShEEN International</p>
+                    <p class="footitem">ShEEN International</p>
                     <p>
                       <i class="bi bi-geo-alt-fill"></i> Vellamunda 7/4, Kattayad (PO), Wayanad, Kerala 670731
                   </p>
-                  <p>
-                      <i class="bi bi-telephone-fill"></i> +91 9400 9959 49 (India) <br>
-                      <i class="bi bi-telephone-fill"></i> +91 9495 9675 00 (India) <br>
-                      <i class="bi bi-telephone-fill"></i> +1 902 233-0645 (Canada)
+                  <p class="footitem">
+                    <i class="bi bi-telephone-fill"></i> 
+                    <a href="tel:+919400995949">+91 9400 9959 49 (India)</a>
+                  </p><br>
+                  <p class="footitem">
+                    <i class="bi bi-telephone-fill"></i> 
+                    <a href="tel:+919495967500">+91 9495 9675 00 (India)</a>
                   </p>
+                  <p class="footitem">
+                    <i class="bi bi-telephone-fill"></i> 
+                    <a href="tel:+19022330645">+1 902 233-0645 (Canada)</a>
+                  </p>
+                                
                   
                   </div>
                   
@@ -941,20 +949,20 @@
                 <div class="col-lg-3 col-md-3 footer-links text-start">
                   <h4>Our Services</h4>
                   <ul>
-                    <li><a href="#services" onclick="smoothScroll(event, '#services')">
-                        <i class="bi bi-globe"></i> Study Abroad Guidance and Support
+                    <li><a class="footitem" href="#services" onclick="smoothScroll(event, '#services')">
+                        <i class="bi bi-globe footitem"></i> Study Abroad Guidance and Support
                     </a></li>
-                    <li><a href="#services" onclick="smoothScroll(event, '#services')">
-                        <i class="bi bi-award"></i> Scholarship Assistance
+                    <li><a class="footitem" href="#services" onclick="smoothScroll(event, '#services')">
+                        <i class="bi bi-award footitem"></i> Scholarship Assistance
                     </a></li>
-                    <li><a href="#services" onclick="smoothScroll(event, '#services')">
-                        <i class="bi bi-pass-fill"></i> Visa Support
+                    <li><a class="footitem" href="#services" onclick="smoothScroll(event, '#services')">
+                        <i class="bi bi-pass-fill footitem"></i> Visa Support
                     </a></li>
-                    <li><a href="#services" onclick="smoothScroll(event, '#services')">
-                        <i class="bi bi-people-fill"></i> Immigration Services
+                    <li><a class="footitem" href="#services" onclick="smoothScroll(event, '#services')">
+                        <i class="bi bi-people-fill footitem"></i> Immigration Services
                     </a></li>
-                    <li><a href="#services" onclick="smoothScroll(event, '#services')">
-                        <i class="bi bi-translate"></i> Language Training
+                    <li><a class="footitem" href="#services" onclick="smoothScroll(event, '#services')">
+                        <i class="bi bi-translate footitem"></i> Language Training
                     </a></li>
                 </ul>
                 
@@ -964,23 +972,23 @@
                   <h4>Global Education Access</h4>
                   <ul>
                     <li>
-                        <a>
-                            <i class="bi bi-mortarboard-fill"></i> Global Education Access
+                        <a class="footitem">
+                            <i class="bi bi-mortarboard-fill footitem"></i> Global Education Access
                         </a>
                     </li>
                     <li>
-                        <a>
-                            <i class="bi bi-globe"></i> Worldwide Network
+                        <a class="footitem">
+                            <i class="bi bi-globe footitem"></i> Worldwide Network
                         </a>
                     </li>
                     <li>
-                        <a>
-                            <i class="bi bi-gear-fill"></i> Comprehensive Support
+                        <a class="footitem">
+                            <i class="bi bi-gear-fill footitem"></i> Comprehensive Support
                         </a>
                     </li>
                     <li>
-                        <a>
-                            <i class="bi bi-chat-left-dots-fill"></i> Free Consultation
+                        <a class="footitem">
+                            <i class="bi bi-chat-left-dots-fill "></i> Free Consultation
                         </a>
                     </li>
                 </ul>
@@ -1006,7 +1014,6 @@
                 Designed by <a href="https://www.linkedin.com/in/muhammedsiyadt/">Siyad Gazzali Wayanad</a>
               </div>
             </div>
-          </footer>
           </a>
         </div>
       </div>

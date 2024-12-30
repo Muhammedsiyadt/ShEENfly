@@ -2468,3 +2468,26 @@ section,
     transform: scale(1.1);
   }
 }
+
+
+.footitem a{
+  color: color-mix(in srgb, var(--default-color), transparent 30%);
+}
+
+.footitem {
+  display: inline-block; /* Treat each item as an individual block */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+  transform-origin: left; /* Keep the scaling fixed on the left */
+}
+
+.footitem:hover {
+  color: var(--accent-color);
+  transform: scaleX(1.2); /* Zoom horizontally to 120% width */
+}
+
+.footitem a:hover {
+  color: var(--accent-color);
+  transform: scaleX(1.2); /* Zoom horizontally to 120% width */
+}
+
+
