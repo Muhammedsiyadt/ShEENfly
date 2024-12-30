@@ -19,6 +19,8 @@
       rel="stylesheet"
     />
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!-- Vendor CSS Files -->
     <link
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
@@ -823,81 +825,95 @@
                   Don't hesitate to get in touch with us!
                 </p>
 
-                <form
-                  action="forms/contact.php"
-                  method="post"
-                  class="php-email-form"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  onsubmit="return validateForm()"
-                >
-                  <div class="row gy-4">
-                    <div class="col-md-6">
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        class="form-control"
-                        placeholder="Your Name"
-                        required
-                        minlength="3"
-                        pattern="^[^\s]+(?:\s+[^\s]+)*$"
-                        title="Name cannot have leading or trailing spaces"
-                      />
-                    </div>
+                <form 
+  action="https://api.web3forms.com/submit" 
+  method="POST" 
+  class="php-email-form" 
+  data-aos="fade-up" 
+  data-aos-delay="200" 
+  onsubmit="return validateForm()"
+>
+  <!-- Required Web3Forms access key -->
+  <input type="hidden" name="access_key" value="0510654d-ca5e-4f1a-bf6f-8a93272a34cd">
 
-                    <div class="col-md-6">
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        class="form-control"
-                        placeholder="Your Email"
-                        required
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        title="Please enter a valid email address"
-                      />
-                    </div>
+  <div class="row gy-4">
+    <div class="col-md-6">
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        placeholder="Your Name"
+        required
+        minlength="3"
+        pattern="^[^\s]+(?:\s+[^\s]+)*$"
+        title="Name cannot have leading or trailing spaces"
+      />
+    </div>
 
-                    <div class="col-12">
-                      <input
-                        type="text"
-                        name="subject"
-                        id="subject"
-                        class="form-control"
-                        placeholder="Subject"
-                        required
-                        minlength="5"
-                        pattern="^[^\s]+(?:\s+[^\s]+)*$"
-                        title="Subject cannot have leading or trailing spaces"
-                      />
-                    </div>
+    <div class="col-md-6">
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Your Email"
+        required
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        title="Please enter a valid email address"
+      />
+    </div>
 
-                    <div class="col-12">
-                      <textarea
-                        class="form-control"
-                        name="message"
-                        id="message"
-                        rows="6"
-                        placeholder="Message"
-                        required
-                        minlength="10"
-                        pattern="^[^\s]+(?:\s+[^\s]+)*$"
-                        title="Message cannot have leading or trailing spaces"
-                      ></textarea>
-                    </div>
+    <div class="col-md-6">
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        class="form-control"
+        placeholder="Your Phone Number"
+        required
+        pattern="^[0-9]{10}$"
+        title="Please enter a valid 10-digit phone number"
+      />
+    </div>
 
-                    <div class="col-12 text-center">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">
-                        Your message has been sent. Thank you!
-                      </div>
+    <div class="col-md-6">
+      <input
+        type="text"
+        name="subject"
+        id="subject"
+        class="form-control"
+        placeholder="Subject"
+        required
+        minlength="5"
+        pattern="^[^\s]+(?:\s+[^\s]+)*$"
+        title="Subject cannot have leading or trailing spaces"
+      />
+    </div>
 
-                      <button type="submit" class="btn">Send Message</button>
-                    </div>
-                  </div>
-                </form>
+    <div class="col-12">
+      <textarea
+        class="form-control"
+        name="message"
+        id="message"
+        rows="6"
+        placeholder="Message"
+        required
+        minlength="10"
+      ></textarea>
+    </div>
+
+    <div class="col-12 text-center">
+      <div class="loading">Loading</div>
+      <div class="error-message"></div>
+      <div class="sent-message">
+        Your message has been sent. Thank you!
+      </div>
+
+      <button type="submit" class="btn">Send Message</button>
+    </div>
+  </div>
+</form>
               </div>
             </div>
           </div>
@@ -1053,36 +1069,101 @@
       }
     </script>
 
-    <script>
-      function validateForm() {
-        // Get the input values
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const subject = document.getElementById("subject").value;
-        const message = document.getElementById("message").value;
-
-        // Check for empty fields
-        if (!name || !email || !subject || !message) {
-          alert("Please fill in all the fields");
-          return false;
-        }
-
-        // Check for spaces in the fields
-        const spacesRegex = /^[^\s]+(?:\s+[^\s]+)*$/;
-        if (
-          !spacesRegex.test(name) ||
-          !spacesRegex.test(subject) ||
-          !spacesRegex.test(message)
-        ) {
-          alert("Please remove leading or trailing spaces in the fields");
-          return false;
-        }
-
-        // Additional checks or custom validations can be added here
-
-        return true;
+<script>
+  function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    // Reset error messages
+    hideAllMessages();
+    
+    // Validate name
+    if (name.length < 3 || /^\s|\s$/.test(name)) {
+      showError('Name must be at least 3 characters and cannot have leading/trailing spaces');
+      return false;
+    }
+    
+    // Validate email
+    if (!isValidEmail(email)) {
+      showError('Please enter a valid email address');
+      return false;
+    }
+    
+    // Validate phone
+    if (!isValidPhone(phone)) {
+      showError('Please enter a valid 10-digit phone number');
+      return false;
+    }
+    
+    // Validate subject
+    if (subject.length < 5 || /^\s|\s$/.test(subject)) {
+      showError('Subject must be at least 5 characters and cannot have leading/trailing spaces');
+      return false;
+    }
+    
+    // Validate message
+    if (message.length < 10) {
+      showError('Message must be at least 10 characters');
+      return false;
+    }
+    
+    // Show loading message
+    document.querySelector('.loading').style.display = 'block';
+    
+    // Submit form using fetch
+    submitForm();
+    return false;
+  }
+  
+  function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
+  
+  function isValidPhone(phone) {
+    const phoneRegex = /^[0-9]{10}$/;
+    return phoneRegex.test(phone);
+  }
+  
+  function hideAllMessages() {
+    document.querySelector('.loading').style.display = 'none';
+    document.querySelector('.error-message').style.display = 'none';
+    document.querySelector('.sent-message').style.display = 'none';
+  }
+  
+  function showError(message) {
+    const errorDiv = document.querySelector('.error-message');
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+  }
+  
+  function submitForm() {
+    const form = document.querySelector('.php-email-form');
+    const formData = new FormData(form);
+    
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      hideAllMessages();
+      if (data.success) {
+        document.querySelector('.sent-message').style.display = 'block';
+        form.reset();
+      } else {
+        showError(data.message || 'An error occurred. Please try again.');
       }
-    </script>
+    })
+    .catch(error => {
+      hideAllMessages();
+      showError('An error occurred. Please try again.');
+    });
+  }
+  </script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
