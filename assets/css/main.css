@@ -1220,6 +1220,14 @@ section,
   .number-square {
     margin-left: 13px;
   }
+
+  .about .feature-list li{
+    margin-left: 15px;
+  }
+
+  .hello{
+    text-align: center;
+  }
   
 }
 
@@ -1227,6 +1235,15 @@ section,
   .number-square {
     margin-left: 13px;
   }
+
+  .about .feature-list li{
+    margin-left: 15px;
+  }
+
+  .hello{
+    text-align: center;
+  }
+  
 }
 
 
