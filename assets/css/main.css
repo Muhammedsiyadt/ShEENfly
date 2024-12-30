@@ -2438,7 +2438,7 @@ section,
 .floating-icons {
   position: fixed;
   left: 15px;
-  bottom: 150px;
+  bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -2450,8 +2450,8 @@ section,
   color: #fff;
   text-align: center;
   line-height: 50px;
-  width: 60px; /* Slightly larger for visibility */
-  height: 60px;
+  width: 55px; /* Slightly larger for visibility */
+  height: 55px;
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(37, 211, 102, 0.5); /* Green glow shadow */
   display: flex;
