@@ -1228,6 +1228,11 @@ section,
   .hello{
     text-align: center;
   }
+
+  .footer-top{
+    margin-left: 20px;
+  }
+  
   
 }
 
@@ -1242,6 +1247,10 @@ section,
 
   .hello{
     text-align: center;
+  }
+
+  .footer-top{
+    margin-left: 20px;
   }
   
 }
