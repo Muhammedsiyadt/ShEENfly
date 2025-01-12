@@ -2532,3 +2532,18 @@ section,
 .input-group .form-control {
   flex: 1;
 }
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  #studyAbroadFields,
+  #domesticAdmissionFields,
+  #shortTermFields {
+    flex-direction: column;
+  }
+
+  .input-group,
+  .form-select {
+    min-width: 100%; /* Take full width on smaller screens */
+  }
+}
+
