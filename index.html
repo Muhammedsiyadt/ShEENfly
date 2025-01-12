@@ -1220,99 +1220,100 @@
 
 <script>
   function validateForm() {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
-    
-    // Reset error messages
-    hideAllMessages();
-    
-    // Validate name
-    if (name.length < 3 || /^\s|\s$/.test(name)) {
-      showError('Name must be at least 3 characters and cannot have leading/trailing spaces');
-      return false;
-    }
-    
-    // Validate email
-    if (!isValidEmail(email)) {
-      showError('Please enter a valid email address');
-      return false;
-    }
-    
-    // Validate phone
-    if (!isValidPhone(phone)) {
-      showError('Please enter a valid 10-digit phone number');
-      return false;
-    }
-    
-    // Validate subject
-    if (subject.length < 5 || /^\s|\s$/.test(subject)) {
-      showError('Subject must be at least 5 characters and cannot have leading/trailing spaces');
-      return false;
-    }
-    
-    // Validate message
-    if (message.length < 10) {
-      showError('Message must be at least 10 characters');
-      return false;
-    }
-    
-    // Show loading message
-    document.querySelector('.loading').style.display = 'block';
-    
-    // Submit form using fetch
-    submitForm();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const admissionType = document.getElementById('admissionType').value;
+  const message = document.getElementById('message').value.trim();
+  
+  // Reset error messages
+  hideAllMessages();
+  
+  // Validate name
+  if (name.length < 3 || /^\s|\s$/.test(name)) {
+    showError('Name must be at least 3 characters and cannot have leading/trailing spaces');
     return false;
   }
   
-  function isValidEmail(email) {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(email);
+  // Validate email
+  if (!isValidEmail(email)) {
+    showError('Please enter a valid email address');
+    return false;
   }
   
-  function isValidPhone(phone) {
-    const phoneRegex = /^[0-9]{10}$/;
-    return phoneRegex.test(phone);
+  // Validate phone
+  if (!isValidPhone(phone)) {
+    showError('Please enter a valid 10-digit phone number');
+    return false;
   }
   
-  function hideAllMessages() {
-    document.querySelector('.loading').style.display = 'none';
-    document.querySelector('.error-message').style.display = 'none';
-    document.querySelector('.sent-message').style.display = 'none';
+  // Validate admission type
+  if (!admissionType) {
+    showError('Please select a purpose');
+    return false;
   }
   
-  function showError(message) {
-    const errorDiv = document.querySelector('.error-message');
-    errorDiv.textContent = message;
-    errorDiv.style.display = 'block';
+  // Validate message
+  if (message.length < 10) {
+    showError('Message must be at least 10 characters');
+    return false;
   }
   
-  function submitForm() {
-    const form = document.querySelector('.php-email-form');
-    const formData = new FormData(form);
-    
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      hideAllMessages();
-      if (data.success) {
-        document.querySelector('.sent-message').style.display = 'block';
-        form.reset();
-      } else {
-        showError(data.message || 'An error occurred. Please try again.');
-      }
-    })
-    .catch(error => {
-      hideAllMessages();
-      showError('An error occurred. Please try again.');
-    });
-  }
-  </script>
+  // Show loading message
+  document.querySelector('.loading').style.display = 'block';
+  
+  // Submit form using fetch
+  submitForm();
+  return false;
+}
+
+function isValidEmail(email) {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+}
+
+function isValidPhone(phone) {
+  const phoneRegex = /^[0-9]{10}$/;
+  return phoneRegex.test(phone);
+}
+
+function hideAllMessages() {
+  document.querySelector('.loading').style.display = 'none';
+  document.querySelector('.error-message').style.display = 'none';
+  document.querySelector('.sent-message').style.display = 'none';
+}
+
+function showError(message) {
+  const errorDiv = document.querySelector('.error-message');
+  errorDiv.textContent = message;
+  errorDiv.style.display = 'block';
+}
+
+function submitForm() {
+  const form = document.querySelector('.php-email-form');
+  const formData = new FormData(form);
+  
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    hideAllMessages();
+    if (data.success) {
+      document.querySelector('.sent-message').style.display = 'block';
+      form.reset();
+    } else {
+      showError(data.message || 'An error occurred. Please try again.');
+    }
+  })
+  .catch(error => {
+    hideAllMessages();
+    showError('An error occurred. Please try again.');
+  });
+}
+
+</script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

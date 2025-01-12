@@ -2513,7 +2513,6 @@ section,
   transform: scaleX(1.09); /* Zoom horizontally to 120% width */
 }
 
-
 #studyAbroadFields,
 #domesticAdmissionFields,
 #shortTermFields {
@@ -2526,24 +2525,18 @@ section,
 .input-group,
 .form-select {
   flex: 1;
-  min-width: calc(50% - 10px);
+  min-width: 100%; /* Ensure each input appears on a separate line */
+  margin-bottom: 10px; /* Add some spacing between inputs */
 }
 
 .input-group .form-control {
   flex: 1;
 }
 
-/* Media query for small screens */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-  #studyAbroadFields,
-  #domesticAdmissionFields,
-  #shortTermFields {
-    flex-direction: column;
-  }
-
   .input-group,
   .form-select {
-    min-width: 100%; /* Take full width on smaller screens */
+    min-width: 100%;
   }
 }
-
