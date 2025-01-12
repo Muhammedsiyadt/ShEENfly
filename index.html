@@ -829,94 +829,199 @@
                 </p>
 
                 <form 
-  action="https://api.web3forms.com/submit" 
-  method="POST" 
-  class="php-email-form" 
-  data-aos="fade-up" 
-  data-aos-delay="200" 
-  onsubmit="return validateForm()"
->
-  <!-- Required Web3Forms access key -->
-  <input type="hidden" name="access_key" value="0510654d-ca5e-4f1a-bf6f-8a93272a34cd">
-
-  <div class="row gy-4">
-    <div class="col-md-6">
-      <input
-        type="text"
-        name="name"
-        id="name"
-        class="form-control"
-        placeholder="Your Name"
-        required
-        minlength="3"
-        pattern="^[^\s]+(?:\s+[^\s]+)*$"
-        title="Name cannot have leading or trailing spaces"
-      />
-    </div>
-
-    <div class="col-md-6">
-      <input
-        type="email"
-        name="email"
-        id="email"
-        class="form-control"
-        placeholder="Your Email"
-        required
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-        title="Please enter a valid email address"
-      />
-    </div>
-
-    <div class="col-md-6">
-      <input
-        type="tel"
-        name="phone"
-        id="phone"
-        class="form-control"
-        placeholder="Your Phone Number"
-        required
-        pattern="^[0-9]{10}$"
-        title="Please enter a valid 10-digit phone number"
-      />
-    </div>
-
-    <div class="col-md-6">
-      <input
-        type="text"
-        name="subject"
-        id="subject"
-        class="form-control"
-        placeholder="Subject"
-        required
-        minlength="5"
-        pattern="^[^\s]+(?:\s+[^\s]+)*$"
-        title="Subject cannot have leading or trailing spaces"
-      />
-    </div>
-
-    <div class="col-12">
-      <textarea
-        class="form-control"
-        name="message"
-        id="message"
-        rows="6"
-        placeholder="Message"
-        required
-        minlength="10"
-      ></textarea>
-    </div>
-
-    <div class="col-12 text-center">
-      <div class="loading">Loading</div>
-      <div class="error-message"></div>
-      <div class="sent-message">
-        Your message has been sent. Thank you!
-      </div>
-
-      <button type="submit" class="btn">Send Message</button>
-    </div>
+                action="https://api.web3forms.com/submit" 
+                method="POST" 
+                class="php-email-form p-4 rounded shadow" 
+                data-aos="fade-up" 
+                data-aos-delay="200" 
+                onsubmit="return validateForm()"
+              >
+                <!-- Required Web3Forms access key -->
+                <input type="hidden" name="access_key" value="0510654d-ca5e-4f1a-bf6f-8a93272a34cd">
+              
+                <div class="row gy-4">
+                  <!-- Name Input -->
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-person"></i></span>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="form-control"
+                        placeholder="Your Name"
+                        required
+                        minlength="3"
+                        pattern="^[^\s]+(?:\s+[^\s]+)*$"
+                        title="Name cannot have leading or trailing spaces"
+                      />
+                    </div>
+                  </div>
+              
+                  <!-- Email Input -->
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="Your Email"
+                        required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        title="Please enter a valid email address"
+                      />
+                    </div>
+                  </div>
+              
+                  <!-- Phone Input -->
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                      <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        class="form-control"
+                        placeholder="Your Phone Number"
+                        required
+                        pattern="^[0-9]{10}$"
+                        title="Please enter a valid 10-digit phone number"
+                      />
+                    </div>
+                  </div>
+              
+                  <!-- Subject Input -->
+                  <div class="col-md-6">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-chat-square-text"></i></span>
+                      <input
+                        type="text"
+                        name="subject"
+                        id="subject"
+                        class="form-control"
+                        placeholder="Subject"
+                        required
+                        minlength="5"
+                        pattern="^[^\s]+(?:\s+[^\s]+)*$"
+                        title="Subject cannot have leading or trailing spaces"
+                      />
+                    </div>
+                  </div>
+              
+                  <!-- Admission Type Dropdown -->
+                  <div class="col-md-6">
+                    <select 
+                      name="admissionType" 
+                      id="admissionType" 
+                      class="form-select" 
+                      onchange="handleAdmissionTypeChange()" 
+                      required
+                    >
+                      <option value="" disabled selected>Select Purpose</option>
+                      <option value="Study Abroad">Study Abroad</option>
+                      <option value="Domestic Admission">Domestic Admission</option>
+                      <option value="Short Term Course">Short Term Course</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+              
+                  <!-- Conditional Fields -->
+                  <!-- Study Abroad Fields -->
+<div id="studyAbroadFields" style="display: none;">
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-journal"></i></span>
+    <input
+      type="text"
+      name="currentStudy"
+      id="currentStudy"
+      class="form-control"
+      placeholder="Current Course of Study"
+    />
   </div>
-</form>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-globe"></i></span>
+    <input
+      type="text"
+      name="preferredCountry"
+      id="preferredCountry"
+      class="form-control"
+      placeholder="Preferred Country"
+    />
+  </div>
+</div>
+
+<!-- Domestic Admission Fields -->
+<div id="domesticAdmissionFields" style="display: none;">
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-house"></i></span>
+    <input
+      type="text"
+      name="domesticCourse"
+      id="domesticCourse"
+      class="form-control"
+      placeholder="Course Interested In"
+    />
+  </div>
+  <select
+    name="studyLevel"
+    id="studyLevel"
+    class="form-select"
+  >
+    <option value="" disabled selected>Select Study Level</option>
+    <option value="Undergraduate">Undergraduate</option>
+    <option value="Postgraduate">Postgraduate</option>
+    <option value="Diploma">Diploma</option>
+  </select>
+</div>
+
+<!-- Short Term Course Fields -->
+<div id="shortTermFields" style="display: none;">
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-calendar-check"></i></span>
+    <input
+      type="text"
+      name="shortTermCourse"
+      id="shortTermCourse"
+      class="form-control"
+      placeholder="Course Name"
+    />
+  </div>
+  <div class="input-group">
+    <span class="input-group-text"><i class="bi bi-clock"></i></span>
+    <input
+      type="text"
+      name="duration"
+      id="duration"
+      class="form-control"
+      placeholder="Duration (e.g., 3 Months)"
+    />
+  </div>
+</div>
+
+              
+                  <!-- Message -->
+                  <div class="col-12">
+                    <textarea
+                      class="form-control"
+                      name="message"
+                      id="message"
+                      rows="6"
+                      placeholder="Message"
+                      required
+                      minlength="10"
+                    ></textarea>
+                  </div>
+              
+                  <!-- Submit -->
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                  </div>
+                </div>
+              </form>
+
+              
               </div>
             </div>
           </div>
@@ -1098,6 +1203,20 @@
         }
       }
     </script>
+
+<script>
+  function handleAdmissionTypeChange() {
+    const type = document.getElementById("admissionType").value;
+
+    document.getElementById("studyAbroadFields").style.display =
+      type === "Study Abroad" ? "flex" : "none";
+    document.getElementById("domesticAdmissionFields").style.display =
+      type === "Domestic Admission" ? "flex" : "none";
+    document.getElementById("shortTermFields").style.display =
+      type === "Short Term Course" ? "flex" : "none";
+  }
+</script>
+
 
 <script>
   function validateForm() {

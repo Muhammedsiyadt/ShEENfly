@@ -2514,3 +2514,21 @@ section,
 }
 
 
+#studyAbroadFields,
+#domesticAdmissionFields,
+#shortTermFields {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.input-group,
+.form-select {
+  flex: 1;
+  min-width: calc(50% - 10px);
+}
+
+.input-group .form-control {
+  flex: 1;
+}
